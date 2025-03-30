@@ -56,6 +56,13 @@
             <version>1.18.36</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>8.0.1.Final</version> <!-- Убедитесь, что версия актуальна на март 2025 -->
+        </dependency>
+
     </dependencies>
 
     <build>

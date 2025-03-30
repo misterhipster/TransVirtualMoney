@@ -1,7 +1,7 @@
 package org.example.delete9.Model.Enums;
 
-public enum OperationStatus {
-    Proccesing,
+// результат завершенной операции
+public enum OperationResult {
     Completed,
     Failed,
     Canceled,

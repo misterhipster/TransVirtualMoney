@@ -1,19 +1,14 @@
 package org.example.delete9.Model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.example.delete9.Model.Enums.BankAccoutStatus;
+import lombok.*;
+import org.example.delete9.Model.Enums.BankAccountStatus;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 public class BankAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +17,6 @@ public class BankAccount {
     private User user;
     @OneToMany(mappedBy = "bankAccount")
     private Set<Card> cards;
-    private Long balance;
-    private BankAccoutStatus status;
+    private BigDecimal balance;
+    private BankAccountStatus status;
 }
