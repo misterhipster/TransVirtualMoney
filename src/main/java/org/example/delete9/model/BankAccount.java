@@ -1,8 +1,8 @@
-package org.example.delete9.Model;
+package org.example.delete9.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.example.delete9.Model.Enums.BankAccountStatus;
+import org.example.delete9.model.Enums.BankAccountStatus;
 
 import java.math.BigDecimal;
 import java.util.Set;

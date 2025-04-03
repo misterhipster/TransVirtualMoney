@@ -1,12 +1,10 @@
-package org.example.delete9.Model;
+package org.example.delete9.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import org.example.delete9.Model.Enums.IdentificatorType;
-import org.example.delete9.Model.Enums.OperationResult;
-import org.example.delete9.Model.Enums.TransactionTool;
+import org.example.delete9.model.Enums.IdentificatorType;
+import org.example.delete9.model.Enums.OperationResult;
+import org.example.delete9.model.Enums.TransactionTool;
 
 import java.math.BigDecimal;
 import java.util.Date;

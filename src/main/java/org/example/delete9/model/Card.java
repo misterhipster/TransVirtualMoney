@@ -1,10 +1,8 @@
-package org.example.delete9.Model;
+package org.example.delete9.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Date;
 import java.util.Set;

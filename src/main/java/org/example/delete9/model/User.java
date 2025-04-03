@@ -1,4 +1,4 @@
-package org.example.delete9.Model;
+package org.example.delete9.model;
 
 import jakarta.persistence.*;
 import lombok.*;
