@@ -1,6 +1,8 @@
 package org.example.delete9.service;
 
 import lombok.AllArgsConstructor;
+import org.example.delete9.model.BankAccount;
+import org.example.delete9.model.Enums.BankAccountStatus;
 import org.example.delete9.model.OperationHistory;
 import org.example.delete9.model.User;
 import org.example.delete9.repository.BankAccountRepository;
@@ -17,10 +19,6 @@ public class UserServiceImpl implements UserService {
     private OperationHistoryRepository operationHistoryRepository;
     private UserRepository userRepository;
 
-    @Override
-    public User getUserInfo(Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User Not Found"));
-    }
 
     @Override
     public void createUser(User user) {
@@ -49,5 +47,18 @@ public class UserServiceImpl implements UserService {
         userRepository.save(existingUser);
     }
 
+    @Override
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User Not Found"));
+
+    }
+
+    @Override
+    public void createBankAccount(Long userId) {
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.setStatus(BankAccountStatus.Working);
+        userRepository.findById(userId).get().getBankAccounts().add(bankAccount);
+
+    }
 
 }

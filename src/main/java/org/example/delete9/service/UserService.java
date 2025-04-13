@@ -1,5 +1,6 @@
 package org.example.delete9.service;
 
+import org.example.delete9.model.BankAccount;
 import org.example.delete9.model.User;
 
 /*
@@ -18,9 +19,12 @@ import org.example.delete9.model.User;
         номер телефона
 */
 public interface UserService {
-    User getUserInfo(Long id);
     void createUser(User user);
+
     void deleteUserById(Long id);
+
     void updateUser(Long id, User user);
 
+    User getUserById(Long userId);
+    void createBankAccount(Long userId);
 }
