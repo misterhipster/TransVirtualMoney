@@ -9,9 +9,12 @@ import java.util.Set;
 
 public interface BankAccountService {
     BankAccount getBankAccountByid(Long bankAccountId);
+    BankAccount getBankAccountByUserId(Long userId);
     BigDecimal getBalanceById(Long bankAccountId);
     void depositById(Long bankAccountId, BigDecimal summ);
     void closeAccountById(Long bankAccountId);
     void blockAccountById(Long bankAccountId);
+
+    void addCard(Long bankAccountId, Card card);
     Set<Card> getCardsForAccount(Long bankAccountId);
 }

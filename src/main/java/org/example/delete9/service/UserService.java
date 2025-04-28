@@ -26,5 +26,6 @@ public interface UserService {
     void updateUser(Long id, User user);
 
     User getUserById(Long userId);
+    User getUserByPhoneNumber(String phoneNumber);
     void createBankAccount(Long userId);
 }

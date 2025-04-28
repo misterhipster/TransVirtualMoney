@@ -54,6 +54,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByPhoneNumber(String phoneNumber) {
+        User user = userRepository.findByPhoneNumber(phoneNumber);
+        return user;
+    }
+
+    @Override
     public void createBankAccount(Long userId) {
         BankAccount bankAccount = new BankAccount();
         bankAccount.setStatus(BankAccountStatus.Working);

@@ -2,19 +2,23 @@ package org.example.delete9.service;
 
 import lombok.Builder;
 import org.example.delete9.model.BankAccount;
+import org.example.delete9.model.OperationHistory;
+import org.example.delete9.model.User;
 import org.example.delete9.repository.BankAccountRepository;
+import org.example.delete9.repository.OperationHistoryRepository;
+import org.example.delete9.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
 @Service
-public class TransferServiceImpl implements TransferService {
+public class TransactionServiceImpl implements TransactionService {
     BankAccountRepository bankAccountRepository;
-
+UserRepository userRepository;
     @Transactional
     @Override
-    public void transfer(Long recieverId, Long senderId, BigDecimal summ) {
+    public void transferByBankAccId(Long recieverId, Long senderId, BigDecimal summ) {
         BankAccount sender = bankAccountRepository.findById(recieverId).orElseThrow(
                 () -> new RuntimeException("TransferServiceImpl bank account not found for sender / transfer operation")
         );
@@ -27,9 +31,24 @@ public class TransferServiceImpl implements TransferService {
         if (result <= 0) {
             sender.setBalance(sender.getBalance().subtract(summ));
             reciever.setBalance(reciever.getBalance().add(summ));
+//            OperationHistory operationHistory = OperationHistory.builder()
+//                    .operationSumm(summ)
+//                    .senderCard();dd
+//            operationHistoryRepository.save();
         } else {
             throw new RuntimeException("Not enough money");
         }
+    }
+
+    @Transactional
+    @Override
+    public void transferByUserPhoneNumbers(String senderPhoneNumber, String recieverPhoneNumber, BigDecimal summ) {
+        User sender = userRepository.findByPhoneNumber(senderPhoneNumber);
+        User reciever = userRepository.findByPhoneNumber(recieverPhoneNumber);
+        if (sender == null || reciever== null){
+            throw new RuntimeException("TransferServiceImpl userSender or userReciever not found/ transfer operation");
+        }
+
     }
 
     @Transactional
